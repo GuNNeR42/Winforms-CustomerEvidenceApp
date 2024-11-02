@@ -1,4 +1,5 @@
 using CustomerEvidenceApp.Data;
+using CustomerEvidenceApp.Forms;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
@@ -42,7 +43,7 @@ namespace CustomerEvidenceApp
                 await seeder.SeedAllAsync(100);
 
                 ApplicationConfiguration.Initialize();
-                Application.Run(new Form1());
+                Application.Run(new CustomerListForm(sqliteContext));
             }
             catch (Exception ex) 
             { 

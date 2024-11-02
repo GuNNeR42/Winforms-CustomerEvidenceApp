@@ -2,14 +2,16 @@ using CustomerEvidenceApp.Data.Models;
 
 namespace CustomerEvidenceApp
 {
-    public partial class Form1 : Form
+    public partial class AddCustomerForm : Form
     {
-        public Form1()
+        private Customer _customer;
+        public AddCustomerForm(Customer customer)
         {
+            _customer = customer;
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AddCustomerForm_Load(object sender, EventArgs e)
         {
             //Gender comboxu dát hodnoty
             List<KeyValuePair<string, string>> genders = new List<KeyValuePair<string, string>>();
@@ -32,17 +34,19 @@ namespace CustomerEvidenceApp
 
         private void button_Save_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            customer.FullName = textBox_FullName.Text;
-            customer.Birthday = dateTimePicker_Birthday.Value;
-            customer.IQ = Convert.ToInt32(numericUpDown_IQ.Value);
+            _customer.FullName = textBox_FullName.Text;
+            _customer.Birthday = dateTimePicker_Birthday.Value;
+            _customer.IQ = Convert.ToInt32(numericUpDown_IQ.Value);
 
             if(comboBox_Gender.SelectedValue is not null)
             {
-                customer.Gender = comboBox_Gender.SelectedValue.ToString()!;
+                _customer.Gender = comboBox_Gender.SelectedValue.ToString()!;
             }
 
-            customer.GdprAgreement = checkBox_GdprAgreement.Checked;
+            _customer.GdprAgreement = checkBox_GdprAgreement.Checked;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
     }

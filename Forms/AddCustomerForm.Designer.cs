@@ -1,6 +1,6 @@
 ﻿namespace CustomerEvidenceApp
 {
-    partial class Form1
+    partial class AddCustomerForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -137,7 +137,7 @@
             label5.TabIndex = 7;
             label5.Text = "IQ";
             // 
-            // Form1
+            // AddCustomerForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -154,9 +154,9 @@
             Controls.Add(checkBox_GdprAgreement);
             Controls.Add(textBox_FullName);
             MinimumSize = new Size(400, 250);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Name = "AddCustomerForm";
+            Text = "AddCustomerForm";
+            Load += AddCustomerForm_Load;
             ((System.ComponentModel.ISupportInitialize)numericUpDown_IQ).EndInit();
             ResumeLayout(false);
             PerformLayout();
