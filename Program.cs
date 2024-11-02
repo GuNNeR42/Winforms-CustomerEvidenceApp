@@ -1,5 +1,6 @@
 using CustomerEvidenceApp.Data;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace CustomerEvidenceApp
 {
@@ -9,7 +10,7 @@ namespace CustomerEvidenceApp
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static async Task Main()
         {
             try
             {
@@ -20,6 +21,25 @@ namespace CustomerEvidenceApp
                 {
                     throw new InvalidOperationException("Database connection strings are not properly configured.");
                 }
+
+
+                using var sqliteContext = new SQLiteDbContext();
+
+                // Ensure database is created
+                await sqliteContext.Database.EnsureCreatedAsync();
+
+                // Configure logging
+                using var loggerFactory = LoggerFactory.Create(builder =>
+                {
+                    builder
+                        .SetMinimumLevel(LogLevel.Information);
+                });
+
+                var logger = loggerFactory.CreateLogger<DatabaseSeeder>();
+
+                // Initialize and run seeder
+                var seeder = new DatabaseSeeder(sqliteContext, logger);
+                await seeder.SeedAllAsync(100);
 
                 ApplicationConfiguration.Initialize();
                 Application.Run(new Form1());
