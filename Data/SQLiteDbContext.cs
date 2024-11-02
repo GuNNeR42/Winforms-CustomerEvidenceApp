@@ -25,5 +25,12 @@ namespace CustomerEvidenceApp.Data
 
             optionsBuilder.UseSqlite("Data Source=CustomerEvidence.db");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+        }
     }
 }
