@@ -1,4 +1,5 @@
-﻿using CustomerEvidenceApp.Entities;
+﻿using CustomerEvidenceApp.Data.Configurations;
+using CustomerEvidenceApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -23,6 +24,13 @@ namespace CustomerEvidenceApp.Data
             base.OnConfiguring(optionsBuilder);
 
             optionsBuilder.UseSqlite("Data Source=CustomerEvidence.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
         }
     }
 }
