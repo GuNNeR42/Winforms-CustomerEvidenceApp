@@ -12,7 +12,7 @@ namespace CustomerEvidenceApp.Data
         public SQLiteDbContext() 
         {
             var config = AppConfiguration.GetConfiguration();
-            _connectionString = config.GetConnectionString("SqliteConnection");
+            _connectionString = config.GetConnectionString("SqliteConnection")!;
         }
 
         // Initiale DbSets for models and set data source
