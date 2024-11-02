@@ -2,14 +2,14 @@ using CustomerEvidenceApp.Data.Models;
 
 namespace CustomerEvidenceApp
 {
-    public partial class Form1 : Form
+    public partial class AddCustomerForm : Form
     {
-        public Form1()
+        public AddCustomerForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AddCustomerForm_Load(object sender, EventArgs e)
         {
             //Gender comboxu dát hodnoty
             List<KeyValuePair<string, string>> genders = new List<KeyValuePair<string, string>>();
