@@ -1,4 +1,5 @@
-﻿using CustomerEvidenceApp.Entities;
+﻿using CustomerEvidenceApp.Data.Configurations;
+using CustomerEvidenceApp.Data.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 

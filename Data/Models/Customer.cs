@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CustomerEvidenceApp.Entities
+﻿namespace CustomerEvidenceApp.Data.Models
 {
     public class Customer
     {
+        public long Id { get; set; }
         public string FullName { get; set; }
         public DateTime Birthday { get; set; }
         public int IQ { get; set; }

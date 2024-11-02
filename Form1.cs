@@ -1,4 +1,4 @@
-using CustomerEvidenceApp.Entities;
+using CustomerEvidenceApp.Data.Models;
 
 namespace CustomerEvidenceApp
 {
